@@ -1,0 +1,6 @@
+<div>
+  <h3>Enter your token:</h3>
+  <input type="text" [(ngModel)]="token">
+  <a [routerLink]="'/'" (click)="editToken()" class="btn btn-primary" aria-current="page" role="button">Done</a><br>
+  Current token: {{ getToken() }}
+</div>

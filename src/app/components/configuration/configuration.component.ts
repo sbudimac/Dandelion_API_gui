@@ -7,9 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConfigurationComponent implements OnInit {
 
-  constructor() { }
+  token: string
+
+  constructor() {
+    this.token = ''
+  }
 
   ngOnInit(): void {
   }
 
+  editToken(): void {
+    localStorage.setItem('token', this.token)
+  }
+
+  getToken(): string {
+    return <string>localStorage.getItem('token')
+  }
 }
