@@ -1,0 +1,19 @@
+<div>
+  <div>
+    <form [formGroup]="textInputForm" (submit)="getEntities()" class="mb-5">
+      <div class="form-group mb-2">
+        <label for="inputTextArea">Body</label>
+        <textarea [(ngModel)]="text" class="form-control" id="inputTextArea" rows="3" [formControlName]="'text'"></textarea>
+        <div class="error-message text-danger" *ngIf="textInputForm.get('text')?.errors?.required"> Text is required! </div>
+      </div>
+      <button [disabled]="!textInputForm.valid" type="submit" class="btn btn-primary">Extract Entities</button>
+    </form>
+  </div>
+  <div *ngIf="!noEntities()">
+    <h2>Entites:</h2>
+    <div *ngFor="let entity of entities;" class="mb-2">
+      <h3>{{entity.title}}</h3>
+      <a [href]="entity.uri" target="_blank">{{entity.uri}}</a>
+    </div>
+  </div>
+</div>
