@@ -4,6 +4,7 @@ import {HomeComponent} from "./components/home/home.component";
 import {ConfigurationComponent} from "./components/configuration/configuration.component";
 import {EntityExtractionComponent} from "./components/entity-extraction/entity-extraction.component";
 import {TextSimilarityComponent} from "./components/text-similarity/text-similarity.component";
+import {LanguageDetectionComponent} from "./components/language-detection/language-detection.component";
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: "textSimilarity",
     component: TextSimilarityComponent
+  },
+  {
+    path: "languageDetection",
+    component: LanguageDetectionComponent
   }
 ];
 

@@ -36,3 +36,16 @@ export interface TextSimilarityResponse {
   url2: string,
   similarity: number
 }
+
+export interface LanguageDetectionResponse {
+  timestamp: Date,
+  time: number,
+  text: string,
+  url: string,
+  detectedLangs: Language[]
+}
+
+export interface Language {
+  lang: string,
+  confidence: number
+}
