@@ -8,13 +8,17 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { HomeComponent } from './components/home/home.component';
 import { EntityExtractionComponent } from './components/entity-extraction/entity-extraction.component';
 import {HttpClientModule} from "@angular/common/http";
+import { TextSimilarityComponent } from './components/text-similarity/text-similarity.component';
+import { LanguageDetectionComponent } from './components/language-detection/language-detection.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ConfigurationComponent,
     HomeComponent,
-    EntityExtractionComponent
+    EntityExtractionComponent,
+    TextSimilarityComponent,
+    LanguageDetectionComponent
   ],
   imports: [
     BrowserModule,
