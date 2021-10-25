@@ -16,4 +16,16 @@ export class EntityExtractionService {
   getEntities(text: string): Observable<EntityExtractionResponse> {
     return this.httpClient.get<EntityExtractionResponse>(`${this.apiUrl}/nex/v1/?text=${text}&token=${localStorage.getItem('token')}`)
   }
+
+  getEntitiesMinConfidence(text: string, minConfidence: number): Observable<EntityExtractionResponse> {
+    return this.httpClient.get<EntityExtractionResponse>(`${this.apiUrl}/nex/v1/?text=${text}&min_confidence=${minConfidence}&token=${localStorage.getItem('token')}`)
+  }
+
+  getEntitiesIncludes(text: string, includes: string): Observable<EntityExtractionResponse> {
+    return this.httpClient.get<EntityExtractionResponse>(`${this.apiUrl}/nex/v1/?text=${text}&include=${includes}&token=${localStorage.getItem('token')}`)
+  }
+
+  getEntitiesFull(text: string, minConfidence: number, includes: string): Observable<EntityExtractionResponse> {
+    return this.httpClient.get<EntityExtractionResponse>(`${this.apiUrl}/nex/v1/?text=${text}&min_confidence=${minConfidence}&include=${includes}&token=${localStorage.getItem('token')}`)
+  }
 }

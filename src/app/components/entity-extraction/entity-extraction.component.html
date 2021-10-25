@@ -1,19 +1,59 @@
 <div>
   <div>
-    <form [formGroup]="textInputForm" (submit)="getEntities()" class="mb-5">
+    <h3>Input text:</h3>
+    <form [formGroup]="textInputForm" class="mb-5">
       <div class="form-group mb-2">
         <label for="inputTextArea">Body</label>
         <textarea [(ngModel)]="text" class="form-control" id="inputTextArea" rows="3" [formControlName]="'text'"></textarea>
         <div class="error-message text-danger" *ngIf="textInputForm.get('text')?.errors?.required"> Text is required! </div>
       </div>
-      <button [disabled]="!textInputForm.valid" type="submit" class="btn btn-primary">Extract Entities</button>
     </form>
   </div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" id="showSlider" (change)="onIncludeMinConfidence()">
+    <label class="form-check-label" for="showSlider">
+      Include minimal confidence
+    </label>
+  </div>
+  <br>
+  <div *ngIf="includeMinConfidence">
+    <h3>Minimal confidence(optional):</h3>
+    <div class="container">
+      <input type="range" min="0.0" max="1.0" value="0.6" step="0.0001" class="slider" id='myRange' [(ngModel)]="minConfidence" name="slider"/>
+      Min confidence: {{minConfidence}}
+    </div>
+  </div>
+  <br>
+  <h3>Check for additional information(optional):</h3>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" id="image" (change)="onCheckImage()">
+    <label class="form-check-label" for="image">
+      Include entity image
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" id="abstract" (change)="onCheckAbstract()">
+    <label class="form-check-label" for="abstract">
+      Include entity abstract
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" id="categories" (change)="onCheckCategories()">
+    <label class="form-check-label" for="categories">
+      Include entity categories
+    </label>
+  </div>
+  <br>
+  <button [disabled]="!textInputForm.valid" (click)="getEntities()" class="btn btn-primary">Extract Entities</button>
+  <br><br><br>
   <div *ngIf="!noEntities()">
     <h2>Entites:</h2>
     <div *ngFor="let entity of entities;" class="mb-2">
       <h3>{{entity.title}}</h3>
       <a [href]="entity.uri" target="_blank">{{entity.uri}}</a>
+      <p *ngIf="entity.abstract != null">{{entity.abstract}}</p>
+      <p *ngIf="entity.categories != null"><b>{{entity.categories}}</b></p>
+      <img *ngIf="entity.image != null" [src]="entity.image.full" [alt]="entity.image.full" width="300" height="400">
     </div>
   </div>
 </div>

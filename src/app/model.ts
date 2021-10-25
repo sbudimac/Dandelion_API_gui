@@ -14,5 +14,13 @@ export interface Annotation {
   id: number,
   title: string,
   uri: string,
-  label: string
+  abstract: string,
+  label: string,
+  categories: string[],
+  image: Image
+}
+
+export interface Image {
+  full: string,
+  thumbnail: string
 }
