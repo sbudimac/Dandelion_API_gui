@@ -43,8 +43,6 @@ export class SentimentAnalysisComponent implements OnInit {
         this.type = sentimentAnalysisResponse.sentiment.type
       }))
     } else {
-      console.log('WOOOO')
-      console.log(this.lan)
       this.sentimentAnalysisService.sentimentAnalysisLang(this.textInputForm.get('text')?.value, this.lan).subscribe((sentimentAnalysisResponse => {
         this.text = this.textInputForm.get('text')?.value
         this.textInputForm.reset()
