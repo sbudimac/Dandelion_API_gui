@@ -4,7 +4,7 @@
     <form [formGroup]="textInputForm" class="mb-5">
       <div class="form-group mb-2">
         <label for="inputTextArea">Body</label>
-        <textarea [(ngModel)]="text" class="form-control" id="inputTextArea" rows="3" [formControlName]="'text'"></textarea>
+        <textarea class="form-control" id="inputTextArea" rows="3" [formControlName]="'text'"></textarea>
         <div class="error-message text-danger" *ngIf="textInputForm.get('text')?.errors?.required"> Text is required! </div>
       </div>
     </form>
@@ -19,8 +19,11 @@
   </div>
   <br><br><br>
   <div *ngIf="languages.length > 0">
+    <h3>Results for given input:</h3>
+    <p>{{text}}</p><br>
     <div *ngFor="let language of languages;" class="mb-2">
-      <h4>Language: {{language.lang}}; Confidence: {{getPercent(language.confidence)}}%</h4>
+      <h4>Language: {{language.lang}}</h4>
+      <h4>Confidence: {{getPercent(language.confidence)}}%</h4>
     </div>
   </div>
 </div>

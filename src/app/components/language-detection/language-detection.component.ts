@@ -38,6 +38,7 @@ export class LanguageDetectionComponent implements OnInit {
 
   detectLanguage(): void {
     this.languageDetectionService.detectLanguageClean(this.textInputForm.get('text')?.value, this.includeClean).subscribe((languageDetectionResponse) => {
+      this.text = this.textInputForm.get('text')?.value
       this.textInputForm.reset()
       this.languages = languageDetectionResponse.detectedLangs
     })

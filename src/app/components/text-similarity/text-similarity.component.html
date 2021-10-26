@@ -4,10 +4,10 @@
     <form [formGroup]="textInputForm" (submit)="compareTexts()" class="mb-5">
       <div class="form-group mb-2">
         <label for="inputTextArea1">Text one</label>
-        <textarea [(ngModel)]="text1" class="form-control" id="inputTextArea1" rows="3" [formControlName]="'text1'"></textarea>
+        <textarea class="form-control" id="inputTextArea1" rows="3" [formControlName]="'text1'"></textarea>
         <div class="error-message text-danger" *ngIf="textInputForm.get('text1')?.errors?.required"> Text is required! </div>
         <label for="inputTextArea2">Text two</label>
-        <textarea [(ngModel)]="text2" class="form-control" id="inputTextArea2" rows="3" [formControlName]="'text2'"></textarea>
+        <textarea class="form-control" id="inputTextArea2" rows="3" [formControlName]="'text2'"></textarea>
         <div class="error-message text-danger" *ngIf="textInputForm.get('text2')?.errors?.required"> Text is required! </div>
       </div>
       <button [disabled]="!textInputForm.valid" class="btn btn-primary">Compare Texts</button>
@@ -15,6 +15,11 @@
   </div>
   <br><br><br>
   <div *ngIf="similarity >= 0">
+    <h3>Results for given text:</h3>
+    <h4>Text1:</h4>
+    <p>{{text1}}</p><br>
+    <h4>Text2:</h4>
+    <p>{{text2}}</p><br>
     <h2>Text similarity: {{getPercent()}}%</h2>
   </div>
 </div>

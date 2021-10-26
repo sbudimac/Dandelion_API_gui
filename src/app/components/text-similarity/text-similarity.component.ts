@@ -33,6 +33,8 @@ export class TextSimilarityComponent implements OnInit {
 
   compareTexts(): void {
     this.textSimilarityService.compareTexts(this.textInputForm.get('text1')?.value, this.textInputForm.get('text2')?.value).subscribe((textSimilarityResponse) => {
+      this.text1 = this.textInputForm.get('text1')?.value
+      this.text2 = this.textInputForm.get('text2')?.value
       this.textInputForm.reset()
       this.similarity = textSimilarityResponse.similarity
     })

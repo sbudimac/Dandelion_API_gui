@@ -5,6 +5,7 @@ import {ConfigurationComponent} from "./components/configuration/configuration.c
 import {EntityExtractionComponent} from "./components/entity-extraction/entity-extraction.component";
 import {TextSimilarityComponent} from "./components/text-similarity/text-similarity.component";
 import {LanguageDetectionComponent} from "./components/language-detection/language-detection.component";
+import {SentimentAnalysisComponent} from "./components/sentiment-analysis/sentiment-analysis.component";
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: "languageDetection",
     component: LanguageDetectionComponent
+  },
+  {
+    path: "sentimentAnalysis",
+    component: SentimentAnalysisComponent
   }
 ];
 

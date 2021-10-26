@@ -78,25 +78,28 @@ export class EntityExtractionComponent implements OnInit {
   getEntities(): void {
     if (!this.includeMinConfidence && !this.includeParameters()) {
       this.entityExtraionService.getEntities(this.textInputForm.get('text')?.value).subscribe((entitieResponse) => {
+        this.text = this.textInputForm.get('text')?.value
         this.textInputForm.reset()
         this.entities = entitieResponse.annotations
       })
     } else if (this.includeMinConfidence && !this.includeParameters()) {
       this.entityExtraionService.getEntitiesMinConfidence(this.textInputForm.get('text')?.value, this.minConfidence).subscribe((entitieResponse) => {
+        this.text = this.textInputForm.get('text')?.value
         this.textInputForm.reset()
         this.entities = entitieResponse.annotations
       })
     } else if (!this.includeMinConfidence && this.includeParameters()) {
       this.entityExtraionService.getEntitiesIncludes(this.textInputForm.get('text')?.value, this.getIncludeParameters()).subscribe((entitieResponse) => {
+        this.text = this.textInputForm.get('text')?.value
         this.textInputForm.reset()
         this.entities = entitieResponse.annotations
       })
     } else {
       this.entityExtraionService.getEntitiesFull(this.textInputForm.get('text')?.value, this.minConfidence, this.getIncludeParameters()).subscribe((entitieResponse) => {
+        this.text = this.textInputForm.get('text')?.value
         this.textInputForm.reset()
         this.entities = entitieResponse.annotations
       })
     }
   }
-
 }

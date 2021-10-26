@@ -10,6 +10,7 @@ import { EntityExtractionComponent } from './components/entity-extraction/entity
 import {HttpClientModule} from "@angular/common/http";
 import { TextSimilarityComponent } from './components/text-similarity/text-similarity.component';
 import { LanguageDetectionComponent } from './components/language-detection/language-detection.component';
+import { SentimentAnalysisComponent } from './components/sentiment-analysis/sentiment-analysis.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { LanguageDetectionComponent } from './components/language-detection/lang
     HomeComponent,
     EntityExtractionComponent,
     TextSimilarityComponent,
-    LanguageDetectionComponent
+    LanguageDetectionComponent,
+    SentimentAnalysisComponent
   ],
   imports: [
     BrowserModule,

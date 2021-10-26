@@ -49,3 +49,15 @@ export interface Language {
   lang: string,
   confidence: number
 }
+
+export interface SentimentAnalysisResponse {
+  timestamp: Date,
+  time: number,
+  lang: string,
+  sentiment: Sentiment
+}
+
+export interface Sentiment {
+  score: number,
+  type: string
+}
