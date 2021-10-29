@@ -61,3 +61,9 @@ export interface Sentiment {
   score: number,
   type: string
 }
+
+export interface HistoryItem {
+  timestamp: number,
+  method: string,
+  url: string
+}

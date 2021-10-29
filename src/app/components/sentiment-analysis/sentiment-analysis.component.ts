@@ -23,7 +23,7 @@ export class SentimentAnalysisComponent implements OnInit {
     this.lan = ''
     this.includeLan = false
     this.textInputForm = this.formBuilder.group({
-      text: ['', [Validators.required, Validators.minLength(3)]]
+      text: ['', Validators.required]
     })
   }
 

@@ -26,7 +26,7 @@ export class EntityExtractionComponent implements OnInit {
     this.includes = [false, false, false]
     this.includeValues = ['image', 'abstract', 'categories']
     this.textInputForm = this.formBuilder.group({
-      text: ['', [Validators.required, Validators.minLength(3)]]
+      text: ['', Validators.required]
     })
   }
 
