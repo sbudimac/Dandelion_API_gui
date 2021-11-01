@@ -34,6 +34,22 @@ export class SentimentAnalysisComponent implements OnInit {
     this.includeLan = !this.includeLan
   }
 
+  scaleScore(): number {
+    return (this.score + 1.0) / 2
+  }
+
+  getGreen(): number {
+    return 255 * this.scaleScore()
+  }
+
+  getRed(): number {
+    return 255 - 255 * this.scaleScore()
+  }
+
+  getRgbString(): string {
+    return 'rgb(' + this.getRed() + ', ' + this.getGreen() + ', 0)'
+  }
+
   sentimentAnalysis():void {
     if (!this.includeLan) {
       this.sentimentAnalysisService.sentimentAnalysis(this.textInputForm.get('text')?.value).subscribe((sentimentAnalysisResponse => {
@@ -50,6 +66,5 @@ export class SentimentAnalysisComponent implements OnInit {
         this.type = sentimentAnalysisResponse.sentiment.type
       }))
     }
-
   }
 }
